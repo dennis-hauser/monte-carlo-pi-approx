@@ -23,8 +23,8 @@ void draw() { // Draw() is a loop, that runs over and over
   
   float pi = 0;
   
-  // Create 100 points at a time
-  for (int i = 0; i< 100; i++) {
+  // Create 10000 points at a time
+  for (int i = 0; i< 10000; i++) {
     float x = random(-r, r);
     float y = random(-r, r);
     
