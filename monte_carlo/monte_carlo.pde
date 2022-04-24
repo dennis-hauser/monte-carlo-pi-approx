@@ -30,10 +30,10 @@ void draw() { // Draw() is a loop, that runs over and over
     
     total_num++; // Increas the total-points-counter by one
     
-    float d = sqrt(x*x + y*y); // How far from the center is the current point
+    float d = x*x + y*y; // How far from the center is the current point
     
     // Check, if the point is inside the circle or outside
-    if (d < r) {
+    if (d < r*r) {
       circle_num++; // Increase the counter, if the point is inside the circle
       stroke(100, 255, 0);
     }
