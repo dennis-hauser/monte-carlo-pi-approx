@@ -21,8 +21,6 @@ void setup() {
 void draw() { // Draw() is a loop, that runs over and over 
   translate(width/2, height/2);
   
-  float pi = 0;
-  
   // Create 10000 points at a time
   for (int i = 0; i< 10000; i++) {
     float x = random(-r, r);
@@ -41,8 +39,8 @@ void draw() { // Draw() is a loop, that runs over and over
       stroke(0, 100, 255);
     }
     
-    pi = 4 * (float(circle_num) / total_num);
     point(x, y); // Draw the random point at x,y  
   }
+  double pi = (double)4 * ((double)circle_num / (double)total_num);
   println(pi);
 }
