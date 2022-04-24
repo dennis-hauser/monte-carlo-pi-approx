@@ -28,7 +28,7 @@ void draw() { // Draw() is a loop, that runs over and over
     
     total_num++; // Increas the total-points-counter by one
     
-    float d = x*x + y*y; // How far from the center is the current point
+    double d = (double)x* (double)x + (double)y* (double)y; // How far from the center is the current point
     
     // Check, if the point is inside the circle or outside
     if (d < r*r) {
