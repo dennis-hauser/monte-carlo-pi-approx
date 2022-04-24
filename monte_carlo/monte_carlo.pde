@@ -21,23 +21,28 @@ void setup() {
 void draw() { // Draw() is a loop, that runs over and over 
   translate(width/2, height/2);
   
-  float x = random(-r, r);
-  float y = random(-r, r);
+  float pi = 0;
   
-  total_num++; // Increas the total-points-counter by one
-  
-  float d = sqrt(x*x + y*y); // How far from the center is the current point
-  
-  // Check, if the point is inside the circle or outside
-  if (d < r) {
-    circle_num++; // Increase the counter, if the point is inside the circle
-    stroke(100, 255, 0);
+  // Create 100 points at a time
+  for (int i = 0; i< 100; i++) {
+    float x = random(-r, r);
+    float y = random(-r, r);
+    
+    total_num++; // Increas the total-points-counter by one
+    
+    float d = sqrt(x*x + y*y); // How far from the center is the current point
+    
+    // Check, if the point is inside the circle or outside
+    if (d < r) {
+      circle_num++; // Increase the counter, if the point is inside the circle
+      stroke(100, 255, 0);
+    }
+    else {
+      stroke(0, 100, 255);
+    }
+    
+    pi = 4 * (float(circle_num) / total_num);
+    point(x, y); // Draw the random point at x,y  
   }
-  else {
-    stroke(0, 100, 255);
-  }
-  
-  float pi = 4 * (float(circle_num) / total_num);
   println(pi);
-  point(x, y); // Draw the random point at x,y
 }
