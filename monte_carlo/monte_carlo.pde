@@ -3,6 +3,8 @@ float r = 200; // Global radius
 int total_num = 0; // Total number of dots
 int circle_num = 0; // Number of dots in the circle
 
+double recordPI = 0; // Keep track of the best approximated value
+
 void setup() {
   size(510, 510); // Window with size 510, 510
   
@@ -31,7 +33,7 @@ void draw() { // Draw() is a loop, that runs over and over
     double d = (double)x* (double)x + (double)y* (double)y; // How far from the center is the current point
     
     // Check, if the point is inside the circle or outside
-    if (d < r*r) {
+    if (d < (double)r* (double)r) {
       circle_num++; // Increase the counter, if the point is inside the circle
       stroke(100, 255, 0);
     }
@@ -40,7 +42,14 @@ void draw() { // Draw() is a loop, that runs over and over
     }
     
     point(x, y); // Draw the random point at x,y  
+    
+    double pi = (double)4 * ((double)circle_num / (double)total_num);
+    double recordDiff = Math.abs(Math.PI - recordPI);
+    double diff = Math.abs(Math.PI - pi); 
+    if (diff < recordDiff) {
+      recordDiff = diff;
+      recordPI = pi;
+      println(recordPI);
+    }
   }
-  double pi = (double)4 * ((double)circle_num / (double)total_num);
-  println(pi);
 }
